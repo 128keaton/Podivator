@@ -7,6 +7,9 @@
 static NSString *doubleTapEventName = @"Double Tap AirPods";
 static NSString *tripleTapEventName = @"Triple Tap AirPods";
 
+BOOL isDoubleTapEventUsed = false;
+BOOL isTripleTapEventUsed = false;
+
 @interface PodivatorDataSource : NSObject <LAEventDataSource> {}
 
 + (id)sharedInstance;
@@ -95,6 +98,20 @@ static NSString *tripleTapEventName = @"Triple Tap AirPods";
 -(void)_postNotificationWithArray:(id)arg1{
        HBLogInfo(@"DEBUG: _postNotificationWithArray: %@", arg1);
        NSLog(@"DEBUG: _postNotificationWithArray: %@", arg1);
+
+       LAEvent *doubleTapEvent = [LAEvent eventWithName:doubleTapEventName mode:[LASharedActivator currentEventMode]];
+       if (!doubleTapEvent.handled){
+           HBLogInfo(@"DEBUG: doubleTapEvent not handled");
+           NSLog(@"DEBUG: doubleTapEvent not handled");
+           %orig;
+       }
+
+       LAEvent *tripleTapEvent = [LAEvent eventWithName:tripleTapEventName mode:[LASharedActivator currentEventMode]];
+       if (!tripleTapEvent.handled){
+          HBLogInfo(@"DEBUG: tripleTapEvent not handled");
+          NSLog(@"DEBUG: tripleTapEvent not handled");
+          %orig;
+       }
 }
 
 %end
