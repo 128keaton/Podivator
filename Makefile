@@ -5,7 +5,7 @@ include $(THEOS)/makefiles/common.mk
 TWEAK_NAME = Podivator
 Podivator_FILES = Event.xm
 Podivator_LIBRARIES = activator
-Podivator_PRIVATE_FRAMEWORKS = MediaRemote
+Podivator_PRIVATE_FRAMEWORKS = MediaRemote TelephonyUtilities
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 
