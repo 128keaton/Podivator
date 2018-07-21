@@ -3,3 +3,5 @@
 .theos
 /.idea
 /.theos
+*/.DS_Store
+
